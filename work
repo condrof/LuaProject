@@ -1,0 +1,16 @@
+<NotepadPlus>
+    <Project name="Assignment2">
+        <File name="background.jpg" />
+        <File name="ball.lua" />
+        <File name="ball.png" />
+        <File name="build.settings" />
+        <File name="config.lua" />
+        <File name="main.lua" />
+        <File name="Thumbs.db" />
+        <File name="wall.lua" />
+        <File name="endOfGame.lua" />
+        <File name="selectLevel.lua" />
+        <File name="splashPage.lua" />
+        <File name="startGame.lua" />
+    </Project>
+</NotepadPlus>
