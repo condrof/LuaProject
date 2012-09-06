@@ -1,10 +1,28 @@
 module(..., package.seeall)
+
+function setPockets()
+	local pocket = {}
+	-- Add objects to use as collision sensors in the pockets
+	local sensorRadius = 20
+	pocket = display.newCircle( math.random(0,display.contentWidth), math.random(0,display.contentHeight), sensorRadius )
+
+	-- (Change this value to "true" to make the pocket sensors visible)
+	pocket.isVisible = true
+	physics.addBody( pocket, "static", { density=1.0, friction=10, radius=sensorRadius, isSensor=true } )
+	pocket.id = "pocket"
+	pocket.bullet = false
+	pocket:addEventListener( "collision", endGame.endOfGame ) -- add table listener to each pocket sensor
+end
  
 function startGame(level)
 	clrScreen()	
 	local ballClass = require ("ball")
 	local wallClass = require("wall")
 	local number = 0
+	setPockets()
+	
+	Runtime:addEventListener( "tap", endGame.endOfGame ) -- add table listener to each pocket sensor
+
 	
 -- create wall objects
 --[[
