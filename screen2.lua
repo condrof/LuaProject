@@ -27,6 +27,10 @@ new = function ( params )
 	
 	local localGroup = display.newGroup()
 	
+	local params = {
+		level=1
+	}
+	
 	------------------
 	-- Display Objects
 	------------------
@@ -47,8 +51,19 @@ new = function ( params )
 	-- Listeners
 	------------------
 	
-	local touched = function ( event )
-		director:changeScene("screen3", "moveFromRight")
+	local easyTouched = function ( event )
+		params.level = 1
+		director:changeScene(params, "screen3", "moveFromRight")
+	end
+	
+	local medTouched = function ( event )
+		params.level = 2
+		director:changeScene(params, "screen3", "moveFromRight")
+	end
+	
+	local hardTouched = function ( event )
+		params.level = 4
+		director:changeScene(params, "screen3", "moveFromRight")
 	end
 		
 	--====================================================================--
@@ -70,7 +85,9 @@ new = function ( params )
 		-- Listeners
 		------------------
 		
-		easy:addEventListener( "touch" , touched )
+		easy:addEventListener( "touch" , easyTouched )
+		medium:addEventListener( "touch" , medTouched )
+		hard:addEventListener( "touch" , hardTouched )
 
 				
 	end
