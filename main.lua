@@ -1,24 +1,67 @@
-display.setStatusBar(display.HiddenStatusBar) --Hide the phones status bar
-game = require("startGame")
-splash = require("splashPage")
-select = require("selectLevel")
-endGame = require("endOfGame")
+display.setStatusBar( display.HiddenStatusBar )
 
---start the physics engine and set the gravity
-physics = require ("physics")
-physics.start()
-physics.setGravity(0,0)	--overhead view so no gravity
+--====================================================================--
+-- DIRECTOR CLASS SAMPLE
+--====================================================================--
 
-function clrScreen()
-	--probably memory leakes re:EventListeners but the game is small enough that it doesn't matter
-	local stage = display.getCurrentStage()	--get everything on the page
-	while stage.numChildren > 0 do
-		local obj = stage[1]
-		obj:removeSelf()
-		obj = nil
-	end
+--[[
+
+ - Version: 1.3
+ - Made by Ricardo Rauber Pereira @ 2010
+ - Blog: http://rauberlabs.blogspot.com/
+ - Mail: ricardorauber@gmail.com
+
+******************
+ - INFORMATION
+******************
+
+  - This is a little sample of what Director Class does.
+  - If you like Director Class, please help us donating at my blog, so I could
+	keep doing it for free. http://rauberlabs.blogspot.com/
+
+--]]
+
+--====================================================================--
+-- IMPORT DIRECTOR CLASS
+--====================================================================--
+
+local director = require("director")
+
+--====================================================================--
+-- CREATE A MAIN GROUP
+--====================================================================--
+
+local mainGroup = display.newGroup()
+
+--====================================================================--
+-- MAIN FUNCTION
+--====================================================================--
+
+local main = function ()
+	
+	------------------
+	-- Add the group from director class
+	------------------
+	
+	mainGroup:insert(director.directorView)
+	
+	------------------
+	-- Change scene without effects
+	------------------
+	
+	director:changeScene("screen1")
+	
+	------------------
+	-- Return
+	------------------
+	
+	return true
 end
 
+--====================================================================--
+-- BEGIN
+--====================================================================--
 
-splash.splashPage()
-	
+main()
+
+-- It's that easy! :-)

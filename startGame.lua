@@ -1,6 +1,13 @@
 module(..., package.seeall)
+ 
+function startGame(level)
+	clrScreen()	
+	local ballClass = require ("ball")
+	local wallClass = require("wall")
+	local number = 0
+	
+	wallClass.wallBorder()
 
-function setPockets()
 	local pocket = {}
 	-- Add objects to use as collision sensors in the pockets
 	local sensorRadius = 20
@@ -12,31 +19,14 @@ function setPockets()
 	pocket.id = "pocket"
 	pocket.bullet = false
 	pocket:addEventListener( "collision", endGame.endOfGame ) -- add table listener to each pocket sensor
-end
- 
-function startGame(level)
-	clrScreen()	
-	local ballClass = require ("ball")
-	local wallClass = require("wall")
-	local number = 0
-	setPockets()
-	
-	Runtime:addEventListener( "tap", endGame.endOfGame ) -- add table listener to each pocket sensor
+	pocket:addEventListener( "tap", endGame.endOfGame ) -- add table listener to each pocket sensor
 
-	
--- create wall objects
---[[
-	local topWall = wallClass.new(0,0, display.contentWidth, 10)
-	local bottomWall = wallClass.new( 0, display.contentHeight - 10, display.contentWidth, 10 )
-	local leftWall = wallClass.new( 0, 0, 10, display.contentHeight )
-	local rightWall = wallClass.new( display.contentWidth - 10, 0, 10, display.contentHeight ) --]]
-	
-	wallClass.wallBorder()
 	
 	ball = {}
  
 	if level=="easy" then
 		for x=1,1,1 do
+			grade=1
 			ball[x] = ballClass.new(math.random(0,display.contentWidth),math.random(0,display.contentHeight))
 			Runtime:addEventListener("accelerometer",function(event)
 											  ball[x]:onAccelerate(event)
@@ -44,6 +34,7 @@ function startGame(level)
 		end 
 	elseif level=="medium" then
 		for x=1,2,1 do
+			grade=2
 			ball[x] = ballClass.new(math.random(0,display.contentWidth),math.random(0,display.contentHeight))
 			Runtime:addEventListener("accelerometer",function(event)
 											  ball[x]:onAccelerate(event)
@@ -51,16 +42,35 @@ function startGame(level)
 		end 
 	else
 		for x=1,3,1 do
+			grade=3
 			ball[x] = ballClass.new(math.random(0,display.contentWidth),math.random(0,display.contentHeight))
 			Runtime:addEventListener("accelerometer",function(event)
 											  ball[x]:onAccelerate(event)
 											   end)
 		end 
 	end	
+	
+	local function endThisGame()
+		--r:removeSelf()
+		Runtime:removeEventListener( "collision", endGame.endOfGame ) -- add table listener to each pocket sensor
+		for x=1,grade,1 do
+			print(ball[x])
+			Runtime:removeEventListener("accelerometer",function(event)
+											  ball[x]:onAccelerate(event)
+											   end)		
+			ball[x] = nil
+			table.remove(ball,x)
+		end
+		--endGame.endOfGame()
+	end
+	
 
 	r = display.newRect(100, 100, 50, 50 ) -- (left, top, width, height)
 	r:setFillColor(0, 255, 0)
 	r:setStrokeColor(255, 0, 0)
 	physics.addBody( r, "static", { density=1.0, friction=10, bounce=0.2, shape=rectangleShape } )
+	
+	r:addEventListener( "tap", endThisGame ) -- add table listener to each pocket sensor	
 
+	
 end

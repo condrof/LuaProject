@@ -4,10 +4,15 @@ local ball_mt = { __index = ball } --meta table
 --constructor
 function ball.new(posx,posy)
 	newBall = display.newImage ("ball.png", posx, posy)
-	physics.addBody(newBall, "dynamic", {density = 1, friction = 0, bounce = .3, isSensor = false, radius = 12})
+	newBall.isVisible=true
+	--physics.addBody(newBall, "dynamic", {density = 1, friction = 0, bounce = .3, isSensor = false, radius = 12})
 	newBall.isBullet = true
 	
 	return setmetatable(newBall, ball_mt)
+end
+
+function removepic()
+	self.isVisible=false
 end
 
 -- Control motion with tilt

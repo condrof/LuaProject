@@ -15,17 +15,27 @@ function selectLevel()
 	hard.x = display.contentWidth/2
 	hard.y = 3*display.contentHeight/6
 	
+	local function removeListeners()
+		Runtime:removeEventListener("tap", easyLevel) 
+		Runtime:removeEventListener("tap", mediumLevel)
+		Runtime:removeEventListener("tap", hardLevel)	
+	end
+	
 	local function easyLevel()	--i don't like corona
 		game.startGame("easy")
+		removeListeners()
+
 	end
 	local function mediumLevel()
+		removeListeners()
 		game.startGame("medium")
 	end
 	local function hardLevel()
+		removeListeners()
 		game.startGame("hard")
 	end
 	
-	easy:addEventListener("tap",easyLevel) 
+	easy:addEventListener("tap", easyLevel) 
 	medium:addEventListener("tap", mediumLevel)
 	hard:addEventListener("tap", hardLevel)
 end
