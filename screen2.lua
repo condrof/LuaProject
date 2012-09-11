@@ -53,17 +53,17 @@ new = function ( params )
 	
 	local easyTouched = function ( event )
 		params.level = 1
-		director:changeScene(params, "screen3", "moveFromRight")
+		director:changeScene(params, "level1", "crossfade")
 	end
 	
 	local medTouched = function ( event )
 		params.level = 2
-		director:changeScene(params, "screen3", "moveFromRight")
+		director:changeScene(params, "level1", "crossfade")
 	end
 	
 	local hardTouched = function ( event )
 		params.level = 4
-		director:changeScene(params, "screen3", "moveFromRight")
+		director:changeScene(params, "level1", "crossfade")
 	end
 		
 	--====================================================================--

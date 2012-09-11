@@ -41,7 +41,7 @@ new = function ( params )
 	label.y = 5*display.contentHeight/6	
 	
 	local touched = function ( event )
-		director:changeScene("screen2", "moveFromRight")
+		director:changeScene("screen2", "crossfade")
 	end
 	
 	--====================================================================--

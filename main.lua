@@ -49,7 +49,7 @@ local main = function ()
 	-- Change scene without effects
 	------------------
 	
-	director:changeScene("screen2")
+	director:changeScene("screen1")
 	
 	------------------
 	-- Return
