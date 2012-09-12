@@ -45,7 +45,7 @@ new = function ()
 	------------------
 
 	local touched = function ( event )
-		director:changeScene("screen1", "crossfade")
+		director:changeScene("screen1")
 	end		
 	
 	local function initVars ()
