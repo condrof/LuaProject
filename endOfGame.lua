@@ -19,7 +19,7 @@ module(..., package.seeall)
 
 --]]
 
-new = function ()
+new = function ( params )
 	
 	------------------
 	-- Groups
@@ -34,6 +34,10 @@ new = function ()
 	------------------
 	-- Display Objects
 	------------------	
+	
+	displayScore = display.newText(params.score,0,0,nil,30)
+	displayScore.x = display.contentWidth/2
+	displayScore.y = display.contentHeight/4
 	
 	restart = display.newText("Play Again",0,0,nil,30)
 	restart:setTextColor(255,255,255)
@@ -56,6 +60,7 @@ new = function ()
 		------------------
 	
 		localGroup:insert( restart )
+		localGroup:insert( displayScore )
 
 		------------------
 		-- Listeners

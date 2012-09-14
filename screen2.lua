@@ -29,6 +29,7 @@ new = function ( params )
 	
 	local params = {
 		level=1
+		score = 0
 	}
 	
 	------------------

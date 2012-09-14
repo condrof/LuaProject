@@ -1,7 +1,6 @@
 <NotepadPlus>
     <Project name="Assignment2">
         <File name="background.jpg" />
-        <File name="ball.lua" />
         <File name="ball.png" />
         <File name="build.settings" />
         <File name="config.lua" />
@@ -11,10 +10,22 @@
         <File name="main.lua" />
         <File name="screen1.lua" />
         <File name="screen2.lua" />
-        <File name="screen3.lua" />
         <File name="template.lua" />
         <File name="Thumbs.db" />
         <File name="level1.lua" />
-        <File name="wall.lua" />
+    </Project>
+    <Project name="SmallAssignment">
+        <File name="C:\Users\Fergal\Documents\Corona Projects\Ass2\background.jpg" />
+        <File name="C:\Users\Fergal\Documents\Corona Projects\Ass2\build.settings" />
+        <File name="C:\Users\Fergal\Documents\Corona Projects\Ass2\button-over.png" />
+        <File name="C:\Users\Fergal\Documents\Corona Projects\Ass2\button.png" />
+        <File name="C:\Users\Fergal\Documents\Corona Projects\Ass2\config.lua" />
+        <File name="C:\Users\Fergal\Documents\Corona Projects\Ass2\director.lua" />
+        <File name="C:\Users\Fergal\Documents\Corona Projects\Ass2\level1.lua" />
+        <File name="C:\Users\Fergal\Documents\Corona Projects\Ass2\levelSelect.lua" />
+        <File name="C:\Users\Fergal\Documents\Corona Projects\Ass2\logo.png" />
+        <File name="C:\Users\Fergal\Documents\Corona Projects\Ass2\main.lua" />
+        <File name="C:\Users\Fergal\Documents\Corona Projects\Ass2\menu.lua" />
+        <File name="C:\Users\Fergal\Documents\Corona Projects\Ass2\template.lua" />
     </Project>
 </NotepadPlus>
